@@ -1,0 +1,33 @@
+.item {
+	padding: 20px 10px 15px;
+	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+	border-radius: 5px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 23px;
+
+	h2 {
+		flex: 1 0 auto;
+		font-size: 17px;
+		text-align: center;
+		text-transform: uppercase;
+		color: rgba(0, 0, 0, 0.8);
+	}
+
+	.info {
+		align-self: center;
+		text-align: left;
+
+		p:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	.id {
+		text-align: right;
+		color: #333;
+		font-size: 12px;
+		opacity: 0.6;
+	}
+}

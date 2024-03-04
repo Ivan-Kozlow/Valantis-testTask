@@ -1,15 +1,15 @@
-export type TypeProduct = {
+export type IProduct = {
 	brand: string | null
 	id: string
 	price: number
 	product: string
 }
 
-export type TypeApiGetIdsResponse = {
-	result: TypeProduct['id'][]
+export type TypeResponseApiGetIds = {
+	result: IProduct['id'][]
 }
-export type TypeApiGetItemsResponse = {
-	result: TypeProduct[]
+export type TypeResponseApiGetItems = {
+	result: IProduct[]
 }
 
 export enum enumApiAction {
@@ -19,7 +19,20 @@ export enum enumApiAction {
 	GET_FIELDS = 'get_fields',
 }
 
-export type TypeRequestParams = {
-	action: enumApiAction
-	params: object
+interface ICommonParams {
+	limit?: number
+	offset?: number
 }
+
+export type TypeRequestParams<T> = {
+	action: enumApiAction
+	params: T
+}
+
+export type TypeRequestGetIdsParams = TypeRequestParams<ICommonParams>
+export type TypeRequestFilterParams = TypeRequestParams<Partial<IProduct>>
+export type TypeRequestGetItemsParams = TypeRequestParams<
+	{
+		ids: IProduct['id'][]
+	} & ICommonParams
+>

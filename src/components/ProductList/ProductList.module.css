@@ -1,0 +1,17 @@
+.items__list {
+	padding-top: 120px;
+	color: #000;
+	margin-bottom: 40px;
+
+	display: grid;
+	justify-content: center;
+	gap: 10px;
+	grid-template-columns: repeat(3, minmax(260px, 420px));
+
+	@media (max-width: 1050px) {
+		grid-template-columns: repeat(2, minmax(260px, 420px));
+	}
+	@media (max-width: 767px) {
+		grid-template-columns: repeat(1, minmax(260px, 420px));
+	}
+}
