@@ -12,33 +12,34 @@ import {
 } from '../types'
 
 export const ProductService = {
-	getProductsIdList: async ({ limit = 50, offset = 0 }) => {
-		return (
-			await axios.post<TypeResponseApiGetIds, AxiosResponse<TypeResponseApiGetIds>, TypeRequestGetIdsParams>('/', {
+	getProductsIdList: async ({ limit = 100, offset = 0 }) => {
+		return await axios.post<TypeResponseApiGetIds, AxiosResponse<TypeResponseApiGetIds>, TypeRequestGetIdsParams>(
+			'/',
+			{
 				action: enumApiAction.GET_IDS,
 				params: { limit, offset },
-			})
-		).data
+			}
+		)
 	},
 
 	getProducts: async (idList: IProduct['id'][]) => {
-		return (
-			await axios.post<TypeResponseApiGetItems, AxiosResponse<TypeResponseApiGetItems>, TypeRequestGetItemsParams>(
-				'/',
-				{
-					action: enumApiAction.GET_ITEMS,
-					params: { ids: idList },
-				}
-			)
-		).data
+		return await axios.post<
+			TypeResponseApiGetItems,
+			AxiosResponse<TypeResponseApiGetItems>,
+			TypeRequestGetItemsParams
+		>('/', {
+			action: enumApiAction.GET_ITEMS,
+			params: { ids: idList },
+		})
 	},
 
 	getFilteredProductsBy: async (filter: Partial<IProduct>) => {
-		return (
-			await axios.post<TypeResponseApiGetIds, AxiosResponse<TypeResponseApiGetIds>, TypeRequestFilterParams>('/', {
+		return await axios.post<TypeResponseApiGetIds, AxiosResponse<TypeResponseApiGetIds>, TypeRequestFilterParams>(
+			'/',
+			{
 				action: enumApiAction.FILTER,
 				params: filter,
-			})
-		).data
+			}
+		)
 	},
 }

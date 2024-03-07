@@ -32,7 +32,7 @@ export type TypeRequestParams<T> = {
 export type TypeRequestGetIdsParams = TypeRequestParams<ICommonParams>
 export type TypeRequestFilterParams = TypeRequestParams<Partial<IProduct>>
 export type TypeRequestGetItemsParams = TypeRequestParams<
-	{
+	ICommonParams & {
 		ids: IProduct['id'][]
-	} & ICommonParams
+	}
 >
