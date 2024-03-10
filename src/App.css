@@ -9,6 +9,7 @@
 .wrapper__center {
 	max-width: 1300px;
 	margin: 0 auto;
+	margin-top: 160px;
 }
 
 .rc-pagination {

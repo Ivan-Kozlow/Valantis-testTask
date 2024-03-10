@@ -34,6 +34,8 @@ export const ProductService = {
 	},
 
 	getFilteredProductsBy: async (filter: Partial<IProduct>) => {
+		filter.price = Number(filter.price)
+
 		return await axios.post<TypeResponseApiGetIds, AxiosResponse<TypeResponseApiGetIds>, TypeRequestFilterParams>(
 			'/',
 			{
